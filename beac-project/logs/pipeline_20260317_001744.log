@@ -1,0 +1,51 @@
+00:17:45  INFO   ========================================================
+00:17:45  INFO     CEMAC MONETARY INTELLIGENCE — PIPELINE
+00:17:45  INFO     Démarrage : 2026-03-17 00:17:45
+00:17:45  INFO     Run ID    : 20260317_001744
+00:17:45  INFO     Racine    : C:\Users\HOME\Downloads\beac-project
+00:17:45  INFO   ========================================================
+00:17:45  INFO   ────────────────────────────────────────────────────────
+00:17:45  INFO     VALIDATION ENVIRONNEMENT
+00:17:45  INFO   ────────────────────────────────────────────────────────
+00:17:45  INFO     ✓  datalake\raw\beac\IPC_CMR.xlsx
+00:17:45  INFO     ✓  datalake\raw\beac\COMPTES_NAT_CMR.xlsx
+00:17:45  INFO     ✓  datalake\raw\beac\STAT_MONETAIRE_CMR.xlsx
+00:17:45  INFO     ✓  datalake\raw\beac\RESERVES_CMR.xlsx
+00:17:45  INFO     ✓  datalake\raw\beac\TOFE_CMR.xlsx
+00:17:45  INFO     ✓  datalake\raw\beac\TIAO_-_Copie.xlsx
+00:17:45  INFO     ✓  datalake\raw\beac\Base_inflation_CEMAC.xlsx
+00:17:45  INFO     ✓  datalake\raw\beac\Reserves_Change_CEMAC.xlsx
+00:17:45  INFO     ✓  FRED_API_KEY définie (c024****)
+00:17:45  WARNING    ⚠  Routing.sh absent → étape 1 ignorée
+00:17:45  INFO   
+00:17:45  INFO     Étapes à exécuter : [9, 10, 11]
+00:17:45  INFO   
+00:17:45  WARNING    ⚠  [9] IGNORÉ ($FRED_API_KEY non définie) : ETL Externe FRED → external.csv
+00:17:45  INFO   
+00:17:45  INFO     ▶  [10] Fusion globale → macro_global_v1.csv
+00:18:01  INFO   NumExpr defaulting to 4 threads.
+00:18:02  INFO     ✓  [10] OK — macro_global_v1.csv (64 lignes, 14 Ko) en 15.5s
+00:18:02  INFO   
+00:18:02  INFO     ▶  [11] Préparation ML → macro_global_v2.csv + ready CSVs
+00:18:05  INFO     ✓  [11] OK — macro_global_v2.csv (64 lignes, 17 Ko) en 3.2s
+00:18:05  INFO   
+00:18:05  INFO   
+00:18:05  INFO   ========================================================
+00:18:05  INFO     RAPPORT D'EXÉCUTION DU PIPELINE
+00:18:05  INFO   ========================================================
+00:18:05  INFO     [09] IGNORÉ   ETL Externe FRED → external.csv
+00:18:05  INFO     [10] OK       Fusion globale → macro_global_v1.csv  64 lignes
+00:18:05  INFO     [11] OK       Préparation ML → macro_global_v2.csv + ready CSVs  64 lignes
+00:18:05  INFO   
+00:18:05  INFO     Réussi   : 2 étapes
+00:18:05  INFO     Ignoré   : 1 étapes (optionnelles)
+00:18:05  INFO     Échoué   : 0 étapes
+00:18:05  INFO     Durée totale : 20.6s
+00:18:05  INFO     Log sauvegardé : C:\Users\HOME\Downloads\beac-project\logs\pipeline_20260317_001744.log
+00:18:05  INFO   ========================================================
+00:18:05  INFO   
+00:18:05  INFO     FICHIERS ML-READY :
+00:18:05  INFO       ✓  macro_global_v2.csv       64×39  NaN=14
+00:18:05  INFO       ✓  bvar_ready.csv            60×9  NaN=0
+00:18:05  INFO       ✓  hmm_ready.csv             64×5  NaN=0
+00:18:05  INFO       ✓  nk_ready.csv              63×11  NaN=0

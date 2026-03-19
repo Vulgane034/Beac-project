@@ -1,0 +1,101 @@
+23:48:43  INFO   ========================================================
+23:48:43  INFO     CEMAC MONETARY INTELLIGENCE — PIPELINE
+23:48:43  INFO     Démarrage : 2026-03-16 23:48:43
+23:48:43  INFO     Run ID    : 20260316_234843
+23:48:43  INFO     Racine    : C:\Users\HOME\Downloads\beac-project
+23:48:43  INFO   ========================================================
+23:48:43  INFO   ────────────────────────────────────────────────────────
+23:48:43  INFO     VALIDATION ENVIRONNEMENT
+23:48:43  INFO   ────────────────────────────────────────────────────────
+23:48:43  INFO     ✓  datalake\raw\beac\IPC_CMR.xlsx
+23:48:43  INFO     ✓  datalake\raw\beac\COMPTES_NAT_CMR.xlsx
+23:48:43  INFO     ✓  datalake\raw\beac\STAT_MONETAIRE_CMR.xlsx
+23:48:43  INFO     ✓  datalake\raw\beac\RESERVES_CMR.xlsx
+23:48:43  INFO     ✓  datalake\raw\beac\TOFE_CMR.xlsx
+23:48:43  INFO     ✓  datalake\raw\beac\TIAO_-_Copie.xlsx
+23:48:43  INFO     ✓  datalake\raw\beac\Base_inflation_CEMAC.xlsx
+23:48:43  INFO     ✓  datalake\raw\beac\Reserves_Change_CEMAC.xlsx
+23:48:43  INFO     ✓  FRED_API_KEY définie (c024****)
+23:48:43  WARNING    ⚠  Routing.sh absent → étape 1 ignorée
+23:48:43  INFO   
+23:48:43  INFO     Étapes à exécuter : [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+23:48:43  INFO   
+23:48:43  INFO     ▶  [02] ETL IPC → ipc.csv
+23:49:34  INFO          OK  ipc.csv  |  2008-Q1 -> 2024-Q4  |  68 obs  |  infl moy 2.76%  |  null 4
+23:49:35  INFO   NumExpr defaulting to 4 threads.
+23:49:35  INFO     ✓  [02] OK — ipc.csv (68 lignes, 1 Ko) en 51.4s
+23:49:35  INFO   
+23:49:35  INFO     ▶  [03] ETL Comptes nationaux → comptes_nat.csv
+23:49:38  INFO          OK  comptes_nat.csv  |  2008-Q1 -> 2024-Q4  |  68 obs  |  croissance moy 3.67%  |  null 0
+23:49:38  INFO     ✓  [03] OK — comptes_nat.csv (68 lignes, 3 Ko) en 3.0s
+23:49:38  INFO   
+23:49:38  INFO     ▶  [04] ETL Monétaire → monetaire.csv
+23:49:42  INFO          OK  monetaire.csv  |  2008-Q1 -> 2024-Q4  |  68 obs  |  M2 growth moy 10.05%  |  null 0
+23:49:42  INFO     ✓  [04] OK — monetaire.csv (68 lignes, 3 Ko) en 3.1s
+23:49:42  INFO   
+23:49:42  INFO     ▶  [05] ETL Réserves → reserves.csv
+23:49:44  INFO          OK  reserves.csv  |  2009-Q4 -> 2024-Q4  |  61/68 obs  (0 null, 2008-Q1->2009-Q3)  |  moy 5956 Mrd XAF  |  chocs 10
+23:49:44  INFO     ✓  [05] OK — reserves.csv (61 lignes, 2 Ko) en 2.6s
+23:49:44  INFO   
+23:49:44  INFO     ▶  [06] ETL TOFE → tofe.csv
+23:49:48  INFO          OK  tofe.csv  |  2008-Q1 -> 2024-Q4  |  68 obs  |  part petrole moy 21.1%  |  null 0
+23:49:49  INFO     ✓  [06] OK — tofe.csv (68 lignes, 3 Ko) en 4.3s
+23:49:49  INFO   
+23:49:49  INFO     ▶  [07] Assemblage BEAC → macro_model_ready_v3.csv
+23:49:53  INFO          ============================================================
+23:49:53  INFO            macro_model_ready.csv - RAPPORT FINAL
+23:49:53  INFO          ============================================================
+23:49:53  INFO            Periode      : 2009-Q1 -> 2024-Q4
+23:49:53  INFO            Dimensions   : 64 lignes x 27 colonnes
+23:49:53  INFO            Variable                  Couv    AC(1)   I(0)?  Modele
+23:49:53  INFO            ----------------------  ------  -------  ------  --------------------
+23:49:53  INFO              ipc_index               100%           
+23:49:53  INFO              gdp_current             100%           
+23:49:53  INFO     ✓  [07] OK — macro_model_ready_v3.csv (64 lignes, 12 Ko) en 3.9s
+23:49:53  INFO   
+23:49:53  INFO     ▶  [08] ETL Séries manuelles BEAC → manual_series.csv
+23:49:55  ERROR    ✗  [08] ÉCHEC (retcode=1)
+23:49:55  ERROR         cel_format
+    with get_handle(
+         ~~~~~~~~~~^
+        content_or_path, "rb", storage_options=storage_options, is_text=False
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+    ) as handle:
+    ^
+  File "C:\Users\HOME\anaconda3\Lib\site-packages\pandas\io\common.py", line 882, in get_handle
+    handle = open(handle, ioargs.mode)
+FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\HOME\\Downloads\\beac-project\\datalake\\raw\\beac/TIAO_CMR.xlsx'
+23:49:55  ERROR  
+23:49:55  ERROR    Étape critique 8 échouée — pipeline interrompu.
+23:49:55  ERROR    Relancer avec : python run_pipeline.py --step 8
+23:49:55  INFO   
+23:49:55  INFO   ========================================================
+23:49:55  INFO     RAPPORT D'EXÉCUTION DU PIPELINE
+23:49:55  INFO   ========================================================
+23:49:55  INFO     [02] OK       ETL IPC → ipc.csv  68 lignes
+23:49:55  INFO     [03] OK       ETL Comptes nationaux → comptes_nat.csv  68 lignes
+23:49:55  INFO     [04] OK       ETL Monétaire → monetaire.csv  68 lignes
+23:49:55  INFO     [05] OK       ETL Réserves → reserves.csv  61 lignes
+23:49:55  INFO     [06] OK       ETL TOFE → tofe.csv  68 lignes
+23:49:55  INFO     [07] OK       Assemblage BEAC → macro_model_ready_v3.csv  64 lignes
+23:49:55  INFO     [08] ÉCHEC    ETL Séries manuelles BEAC → manual_series.csv
+23:49:55  INFO             ↳ cel_format
+    with get_handle(
+         ~~~~~~~~~~^
+        content_or_path, "r
+23:49:55  INFO   
+23:49:55  INFO     Réussi   : 6 étapes
+23:49:55  INFO     Ignoré   : 0 étapes (optionnelles)
+23:49:55  INFO     Échoué   : 1 étapes
+23:49:55  INFO     Durée totale : 71.9s
+23:49:55  INFO     Log sauvegardé : C:\Users\HOME\Downloads\beac-project\logs\pipeline_20260316_234843.log
+23:49:55  INFO   ========================================================
+23:49:55  INFO   
+23:49:55  INFO     FICHIERS ML-READY :
+23:49:55  INFO       ✗  macro_global_v2.csv — non produit
+23:49:55  INFO       ✗  bvar_ready.csv — non produit
+23:49:55  INFO       ✗  hmm_ready.csv — non produit
+23:49:55  INFO       ✗  nk_ready.csv — non produit
+23:49:55  ERROR  
+23:49:55  ERROR    ⚠  DES ÉTAPES ONT ÉCHOUÉ. Vérifier les logs ci-dessus.
+23:49:55  ERROR       Astuce : relancer avec --step N pour reprendre à l'étape N.

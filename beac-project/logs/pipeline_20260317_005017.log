@@ -1,0 +1,61 @@
+00:50:17  INFO   ========================================================
+00:50:17  INFO     CEMAC MONETARY INTELLIGENCE — PIPELINE
+00:50:17  INFO     Démarrage : 2026-03-17 00:50:17
+00:50:17  INFO     Run ID    : 20260317_005017
+00:50:17  INFO     Racine    : C:\Users\HOME\Downloads\beac-project
+00:50:17  INFO   ========================================================
+00:50:17  INFO   ────────────────────────────────────────────────────────
+00:50:17  INFO     VALIDATION ENVIRONNEMENT
+00:50:17  INFO   ────────────────────────────────────────────────────────
+00:50:17  INFO     ✓  datalake\raw\beac\IPC_CMR.xlsx
+00:50:17  INFO     ✓  datalake\raw\beac\COMPTES_NAT_CMR.xlsx
+00:50:17  INFO     ✓  datalake\raw\beac\STAT_MONETAIRE_CMR.xlsx
+00:50:17  INFO     ✓  datalake\raw\beac\RESERVES_CMR.xlsx
+00:50:17  INFO     ✓  datalake\raw\beac\TOFE_CMR.xlsx
+00:50:17  INFO     ✓  datalake\raw\beac\TIAO_-_Copie.xlsx
+00:50:17  INFO     ✓  datalake\raw\beac\Base_inflation_CEMAC.xlsx
+00:50:17  INFO     ✓  datalake\raw\beac\Reserves_Change_CEMAC.xlsx
+00:50:17  INFO     ✓  FRED_API_KEY définie (c024****)
+00:50:17  WARNING    ⚠  Routing.sh absent → étape 1 ignorée
+00:50:17  INFO   
+00:50:17  INFO     Étapes à exécuter : [9, 10, 11]
+00:50:17  INFO   
+00:50:17  INFO     ▶  [09] ETL Externe FRED → external.csv
+00:50:42  INFO          ==============================================================
+00:50:42  INFO            RAPPORT EXTERNAL.CSV
+00:50:42  INFO          ==============================================================
+00:50:42  INFO            Periode      : 2008-Q1 -> 2024-Q4
+00:50:42  INFO            Observations : 68
+00:50:42  INFO            Variable         Trimestre      Calc       Ref    Ecart  Statut
+00:50:42  INFO            ---------------- ---------- --------  --------  -------  ---------------
+00:50:42  INFO            fed_rate         2020-Q2        0.08      0.25    68.0%  KO Fed ZIRP COVID
+00:50:42  INFO            fed_rate         2023-Q3        5.33      5.33     0.0%  OK Fed pic 2023
+00:50:43  INFO   NumExpr defaulting to 4 threads.
+00:50:44  INFO     ✓  [09] OK — external.csv (68 lignes, 6 Ko) en 24.6s
+00:50:44  INFO   
+00:50:44  INFO     ▶  [10] Fusion globale → macro_global_v1.csv
+00:50:46  INFO     ✓  [10] OK — macro_global_v1.csv (64 lignes, 23 Ko) en 2.3s
+00:50:46  INFO   
+00:50:46  INFO     ▶  [11] Préparation ML → macro_global_v2.csv + ready CSVs
+00:50:49  INFO     ✓  [11] OK — macro_global_v2.csv (64 lignes, 27 Ko) en 3.1s
+00:50:49  INFO   
+00:50:49  INFO   
+00:50:49  INFO   ========================================================
+00:50:49  INFO     RAPPORT D'EXÉCUTION DU PIPELINE
+00:50:49  INFO   ========================================================
+00:50:49  INFO     [09] OK       ETL Externe FRED → external.csv  68 lignes
+00:50:49  INFO     [10] OK       Fusion globale → macro_global_v1.csv  64 lignes
+00:50:49  INFO     [11] OK       Préparation ML → macro_global_v2.csv + ready CSVs  64 lignes
+00:50:49  INFO   
+00:50:49  INFO     Réussi   : 3 étapes
+00:50:49  INFO     Ignoré   : 0 étapes (optionnelles)
+00:50:49  INFO     Échoué   : 0 étapes
+00:50:49  INFO     Durée totale : 32.0s
+00:50:49  INFO     Log sauvegardé : C:\Users\HOME\Downloads\beac-project\logs\pipeline_20260317_005017.log
+00:50:49  INFO   ========================================================
+00:50:49  INFO   
+00:50:49  INFO     FICHIERS ML-READY :
+00:50:50  INFO       ✓  macro_global_v2.csv       64×57  NaN=35
+00:50:50  INFO       ✓  bvar_ready.csv            60×13  NaN=0
+00:50:50  INFO       ✓  hmm_ready.csv             64×5  NaN=0
+00:50:50  INFO       ✓  nk_ready.csv              63×11  NaN=0

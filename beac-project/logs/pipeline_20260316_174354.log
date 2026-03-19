@@ -1,0 +1,65 @@
+17:43:54  INFO   ========================================================
+17:43:54  INFO     CEMAC MONETARY INTELLIGENCE — PIPELINE
+17:43:54  INFO     Démarrage : 2026-03-16 17:43:54
+17:43:54  INFO     Run ID    : 20260316_174354
+17:43:54  INFO     Racine    : C:\Users\HOME\Downloads\beac-project
+17:43:54  INFO   ========================================================
+17:43:54  INFO   ────────────────────────────────────────────────────────
+17:43:54  INFO     VALIDATION ENVIRONNEMENT
+17:43:54  INFO   ────────────────────────────────────────────────────────
+17:43:54  INFO     ✓  datalake\raw\beac\IPC_CMR.xlsx
+17:43:54  INFO     ✓  datalake\raw\beac\COMPTES_NAT_CMR.xlsx
+17:43:54  INFO     ✓  datalake\raw\beac\STAT_MONETAIRE_CMR.xlsx
+17:43:54  INFO     ✓  datalake\raw\beac\RESERVES_CMR.xlsx
+17:43:54  INFO     ✓  datalake\raw\beac\TOFE_CMR.xlsx
+17:43:54  INFO     ✓  datalake\raw\beac\TIAO_-_Copie.xlsx
+17:43:54  INFO     ✓  datalake\raw\beac\Base_inflation_CEMAC.xlsx
+17:43:54  INFO     ✓  datalake\raw\beac\Reserves_Change_CEMAC.xlsx
+17:43:54  INFO     ✓  FRED_API_KEY définie (c024****)
+17:43:54  WARNING    ⚠  Routing.sh absent → étape 1 ignorée
+17:43:54  INFO   
+17:43:54  INFO     Étapes à exécuter : [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+17:43:54  INFO   
+17:43:54  INFO     ▶  [02] ETL IPC → ipc.csv
+17:44:10  INFO          OK  ipc.csv  |  2008-Q1 -> 2024-Q4  |  68 obs  |  infl moy 2.76%  |  null 4
+17:44:11  INFO   NumExpr defaulting to 4 threads.
+17:44:12  INFO     ✓  [02] OK — ipc.csv (68 lignes, 1 Ko) en 16.6s
+17:44:12  INFO   
+17:44:12  INFO     ▶  [03] ETL Comptes nationaux → comptes_nat.csv
+17:44:17  ERROR    ✗  [03] ÉCHEC (retcode=1)
+17:44:17  ERROR         ean():.2f}%"
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          f"  |  null {cn.isna().sum().sum()}")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HOME\anaconda3\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2192' in position 32: character maps to <undefined>
+17:44:17  ERROR  
+17:44:17  ERROR    Étape critique 3 échouée — pipeline interrompu.
+17:44:17  ERROR    Relancer avec : python run_pipeline.py --step 3
+17:44:17  INFO   
+17:44:17  INFO   ========================================================
+17:44:17  INFO     RAPPORT D'EXÉCUTION DU PIPELINE
+17:44:17  INFO   ========================================================
+17:44:17  INFO     [02] OK       ETL IPC → ipc.csv  68 lignes
+17:44:17  INFO     [03] ÉCHEC    ETL Comptes nationaux → comptes_nat.csv
+17:44:17  INFO             ↳ ean():.2f}%"
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   
+17:44:17  INFO   
+17:44:17  INFO     Réussi   : 1 étapes
+17:44:17  INFO     Ignoré   : 0 étapes (optionnelles)
+17:44:17  INFO     Échoué   : 1 étapes
+17:44:17  INFO     Durée totale : 23.7s
+17:44:17  INFO     Log sauvegardé : C:\Users\HOME\Downloads\beac-project\logs\pipeline_20260316_174354.log
+17:44:17  INFO   ========================================================
+17:44:17  INFO   
+17:44:17  INFO     FICHIERS ML-READY :
+17:44:17  INFO       ✗  macro_global_v2.csv — non produit
+17:44:17  INFO       ✗  bvar_ready.csv — non produit
+17:44:17  INFO       ✗  hmm_ready.csv — non produit
+17:44:17  INFO       ✗  nk_ready.csv — non produit
+17:44:17  ERROR  
+17:44:17  ERROR    ⚠  DES ÉTAPES ONT ÉCHOUÉ. Vérifier les logs ci-dessus.
+17:44:17  ERROR       Astuce : relancer avec --step N pour reprendre à l'étape N.

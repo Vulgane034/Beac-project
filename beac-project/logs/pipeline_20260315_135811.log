@@ -1,0 +1,23 @@
+13:58:11  INFO   ========================================================
+13:58:11  INFO     CEMAC MONETARY INTELLIGENCE — PIPELINE
+13:58:11  INFO     Démarrage : 2026-03-15 13:58:11
+13:58:11  INFO     Run ID    : 20260315_135811
+13:58:11  INFO     Racine    : C:\Users\HOME\Downloads\beac-project
+13:58:11  INFO   ========================================================
+13:58:11  INFO   ────────────────────────────────────────────────────────
+13:58:11  INFO     VALIDATION ENVIRONNEMENT
+13:58:11  INFO   ────────────────────────────────────────────────────────
+13:58:11  INFO     ✓  datalake\raw\beac\IPC_CMR.xlsx
+13:58:11  ERROR    ✗  MANQUANT : datalake\raw\beac\COMPTES_NAT_CMR.xlsx
+13:58:11  ERROR    ✗  MANQUANT : datalake\raw\beac\STAT_MONETAIRE_CMR.xlsx
+13:58:11  ERROR    ✗  MANQUANT : datalake\raw\beac\RESERVES_CMR.xlsx
+13:58:11  ERROR    ✗  MANQUANT : datalake\raw\beac\TOFE_CMR.xlsx
+13:58:11  ERROR    ✗  MANQUANT : datalake\raw\beac\TIAO_-_Copie.xlsx
+13:58:11  INFO     ✓  datalake\raw\beac\Base_inflation_CEMAC.xlsx
+13:58:11  INFO     ✓  datalake\raw\beac\Reserves_Change_CEMAC.xlsx
+13:58:11  WARNING    ⚠  FRED_API_KEY absente → étape 9 sera ignorée
+13:58:11  WARNING    ⚠  Routing.sh absent → étape 1 ignorée
+13:58:11  ERROR  
+13:58:11  ERROR    Des fichiers sources sont manquants.
+13:58:11  ERROR    Lancer Routing.sh d'abord ou corriger les chemins dans config.py
+13:58:11  ERROR    Continuer quand même ? (o/N)

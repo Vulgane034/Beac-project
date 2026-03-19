@@ -1,0 +1,73 @@
+23:39:20  INFO   ========================================================
+23:39:20  INFO     CEMAC MONETARY INTELLIGENCE — PIPELINE
+23:39:20  INFO     Démarrage : 2026-03-16 23:39:20
+23:39:20  INFO     Run ID    : 20260316_233919
+23:39:20  INFO     Racine    : C:\Users\HOME\Downloads\beac-project
+23:39:20  INFO   ========================================================
+23:39:20  INFO   ────────────────────────────────────────────────────────
+23:39:20  INFO     VALIDATION ENVIRONNEMENT
+23:39:20  INFO   ────────────────────────────────────────────────────────
+23:39:20  INFO     ✓  datalake\raw\beac\IPC_CMR.xlsx
+23:39:20  INFO     ✓  datalake\raw\beac\COMPTES_NAT_CMR.xlsx
+23:39:20  INFO     ✓  datalake\raw\beac\STAT_MONETAIRE_CMR.xlsx
+23:39:20  INFO     ✓  datalake\raw\beac\RESERVES_CMR.xlsx
+23:39:20  INFO     ✓  datalake\raw\beac\TOFE_CMR.xlsx
+23:39:20  INFO     ✓  datalake\raw\beac\TIAO_-_Copie.xlsx
+23:39:20  INFO     ✓  datalake\raw\beac\Base_inflation_CEMAC.xlsx
+23:39:20  INFO     ✓  datalake\raw\beac\Reserves_Change_CEMAC.xlsx
+23:39:20  INFO     ✓  FRED_API_KEY définie (c024****)
+23:39:20  WARNING    ⚠  Routing.sh absent → étape 1 ignorée
+23:39:20  INFO   
+23:39:20  INFO     Étapes à exécuter : [2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+23:39:20  INFO   
+23:39:20  INFO     ▶  [02] ETL IPC → ipc.csv
+23:39:46  INFO          OK  ipc.csv  |  2008-Q1 -> 2024-Q4  |  68 obs  |  infl moy 2.76%  |  null 4
+23:39:47  INFO   NumExpr defaulting to 4 threads.
+23:39:47  INFO     ✓  [02] OK — ipc.csv (68 lignes, 1 Ko) en 26.0s
+23:39:47  INFO   
+23:39:47  INFO     ▶  [03] ETL Comptes nationaux → comptes_nat.csv
+23:39:50  INFO          OK  comptes_nat.csv  |  2008-Q1 -> 2024-Q4  |  68 obs  |  croissance moy 3.67%  |  null 0
+23:39:50  INFO     ✓  [03] OK — comptes_nat.csv (68 lignes, 3 Ko) en 3.0s
+23:39:50  INFO   
+23:39:50  INFO     ▶  [04] ETL Monétaire → monetaire.csv
+23:39:53  INFO          OK  monetaire.csv  |  2008-Q1 -> 2024-Q4  |  68 obs  |  M2 growth moy 10.05%  |  null 0
+23:39:53  INFO     ✓  [04] OK — monetaire.csv (68 lignes, 3 Ko) en 3.2s
+23:39:53  INFO   
+23:39:53  INFO     ▶  [05] ETL Réserves → reserves.csv
+23:39:56  ERROR    ✗  [05] ÉCHEC (retcode=1)
+23:39:56  ERROR            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          f"  |  chocs {int(res['reserves_flag'].sum())}")
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\HOME\anaconda3\Lib\encodings\cp1252.py", line 19, in encode
+    return codecs.charmap_encode(input,self.errors,encoding_table)[0]
+           ~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+UnicodeEncodeError: 'charmap' codec can't encode character '\u2192' in position 71: character maps to <undefined>
+23:39:56  ERROR  
+23:39:56  ERROR    Étape critique 5 échouée — pipeline interrompu.
+23:39:56  ERROR    Relancer avec : python run_pipeline.py --step 5
+23:39:56  INFO   
+23:39:56  INFO   ========================================================
+23:39:56  INFO     RAPPORT D'EXÉCUTION DU PIPELINE
+23:39:56  INFO   ========================================================
+23:39:56  INFO     [02] OK       ETL IPC → ipc.csv  68 lignes
+23:39:56  INFO     [03] OK       ETL Comptes nationaux → comptes_nat.csv  68 lignes
+23:39:56  INFO     [04] OK       ETL Monétaire → monetaire.csv  68 lignes
+23:39:56  INFO     [05] ÉCHEC    ETL Réserves → reserves.csv
+23:39:56  INFO             ↳    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+          f"  |  chocs {i
+23:39:56  INFO   
+23:39:56  INFO     Réussi   : 3 étapes
+23:39:56  INFO     Ignoré   : 0 étapes (optionnelles)
+23:39:56  INFO     Échoué   : 1 étapes
+23:39:56  INFO     Durée totale : 36.2s
+23:39:56  INFO     Log sauvegardé : C:\Users\HOME\Downloads\beac-project\logs\pipeline_20260316_233919.log
+23:39:56  INFO   ========================================================
+23:39:56  INFO   
+23:39:56  INFO     FICHIERS ML-READY :
+23:39:56  INFO       ✗  macro_global_v2.csv — non produit
+23:39:56  INFO       ✗  bvar_ready.csv — non produit
+23:39:56  INFO       ✗  hmm_ready.csv — non produit
+23:39:56  INFO       ✗  nk_ready.csv — non produit
+23:39:56  ERROR  
+23:39:56  ERROR    ⚠  DES ÉTAPES ONT ÉCHOUÉ. Vérifier les logs ci-dessus.
+23:39:56  ERROR       Astuce : relancer avec --step N pour reprendre à l'étape N.
